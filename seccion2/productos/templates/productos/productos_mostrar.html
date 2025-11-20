@@ -1,0 +1,15 @@
+{% extends 'productos/base.html' %}
+{% block title %}Detalle: {{ producto.nombre }}{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{ producto.nombre }}</h5>
+        <p class="card-text"><strong>ID:</strong> {{ producto.id }}</p>
+        <p class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+        <p class="card-text"><strong>Cantidad:</strong> {{ producto.cantidad }}</p>
+        <a href="{% url 'producto_actualizar' producto.id %}" class="btn btn-primary">Editar</a>
+        <a href="{% url 'lista_productos' %}" class="btn btn-secondary ms-2">Volver a la lista</a>
+    </div>
+</div>
+{% endblock %}

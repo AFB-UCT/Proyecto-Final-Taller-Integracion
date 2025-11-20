@@ -1,0 +1,10 @@
+{% extends 'productos/base.html' %}
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="py-5 text-center">
+    <h1 class="display-5">Saludos</h1>
+    <p class="lead">Página de inicio de la sección 2.</p>
+    <a href="{% url 'inicio' %}" class="btn btn-primary">Ir a Productos</a>
+</div>
+{% endblock %}

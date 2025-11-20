@@ -1,0 +1,27 @@
+{% extends 'productos/base.html' %}
+{% block title %}Agregar Producto{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Agregar Producto</h5>
+        <form method="post" action="{% url 'producto_agregar' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion">
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="cantidad" name="cantidad" min="0" value="0">
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+            <a href="{% url 'lista_productos' %}" class="btn btn-secondary ms-2">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

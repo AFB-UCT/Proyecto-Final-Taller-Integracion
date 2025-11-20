@@ -1,0 +1,24 @@
+para el miercolesssssssss
+
+crear la aplicacion de producto
+crear la ruta 
+crear la vista
+
+
+dejar listos los metodos y html
+eliminar,actualizar,obtener by id
+
+^ tareas antiguas ^
+
+
+tarea nuevas:
+crear footer generico 19-11-2025
+
+
+para el proyecto(Semana del 1 de Diciembre al 5 de Diciembre):
+
+-Index
+-Login
+-Formulario(cualquiera)
+-Mostrar CRUD de la aplicacion basico
+

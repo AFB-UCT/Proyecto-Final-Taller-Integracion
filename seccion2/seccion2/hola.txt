@@ -1,0 +1,62 @@
+
+
+
+
+
+
+
+En Temuco, la gestión de espacios públicos enfrenta una limitación estructural: 
+la Municipalidad carece de equipos,
+personal y sistemas para inspeccionar de forma constante
+calles, veredas y accesos.
+Esto genera una brecha crítica: 
+los problemas visibles como baches, veredas rotas,
+accesos inaccesibles permanecen meses sin solución,
+afectando seguridad y calidad de vida.
+
+A ello se suma una debilidad en la comunicación con la ciudadanía:
+los reportes existen, pero son dispersos, 
+sin integración ni trazabilidad pública. 
+La información se pierde en la burocracia, 
+sin presión social ni seguimiento. El resultado es un sistema opaco, 
+incapaz de priorizar urgencias ni de rendir cuentas.
+
+Frente a este escenario, 
+se propone el desarrollo de una plataforma digital ciudadana
+que funcione como método de denuncia y colecta de información sobre el estado de la infraestructura urbana.
+Esta herramienta permitiría a los habitantes de Temuco reportar problemas de manera geolocalizada,
+adjuntando fotografías, descripciones y categorizaciones.
+Los reportes podrian ser públicos,
+compartibles en redes sociales y visibles en un mapa dinámico.
+
+
+
+
+
+
+
+
+El objetivo es desarrollar soluciones tecnológicas y sociales
+que hagan de Temuco una ciudad más conectada, segura y participativa,
+usando datos para mejorar servicios municipales,
+impulsar movilidad sostenible y optimizar infraestructura y equipamiento urbano.
+
+
+ingresara para ver reportes creados por los demas usuarios 
+en los cuales podra:
+seguir, comentar y votar para darles prioridad
+y estos se consideren mas rapido
+ademas podra visualizarlos la ubicacion en el mapa interactivo
+
+luego en el apartado municipal 
+tendra su seccion aparte en la cual a los 
+reportes mas votados podra crearles un proyecto asociado que
+es la solucion planteada al problema dado por los usuarios
+
+
+
+
+
+
+
+

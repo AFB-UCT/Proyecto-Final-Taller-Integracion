@@ -1,0 +1,11 @@
+<footer class="bg-light text-muted mt-5">
+    <div class="container py-3 d-flex justify-content-between align-items-center">
+        <div>
+            &copy; {% now "Y" %} - Gestión de Productos
+        </div>
+        <div>
+            <a href="{% url 'lista_productos' %}" class="text-muted me-3">Lista</a>
+            <a href="{% url 'producto_agregar' %}" class="text-muted">Agregar</a>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,11 @@
+{% extends 'productos/base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="p-4 bg-light rounded-3">
+    <h1 class="display-6">Bienvenido</h1>
+    <p class="lead">Esta es la aplicación de gestión de productos con Django + Bootstrap.</p>
+    <hr>
+    <p>Usa el menú superior para navegar. Próximamente: creación y edición desde la interfaz.</p>
+    <a href="{% url 'lista_productos' %}" class="btn btn-primary btn-lg">Ver Productos</a>
+</div>
+{% endblock %}
