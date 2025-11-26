@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="search-bar">
+    <form action="" method="GET" style="display: flex; width: 100%; gap: 10px;">
+        <input type="text" name="q" class="search-input" placeholder="🔍 Buscar ofertas (ej: Leche, Super X)..."
+            value="{{ request.GET.q|default:'' }}">
+        <select name="categoria" class="form-control" style="width: auto;">
+            <option value="">Todas</option>
+            <option value="COMIDA">Comida</option>
+            <option value="BEBIDA">Bebida</option>
+            <option value="ASEO">Aseo</option>
+        </select>
+        <button type="submit" class="btn-retro">Buscar</button>
+    </form>
+</div>
+
+<div class="feed-grid">
+    {% for producto in productos %}
+    <div class="card">
+        <div class="card-header">
+            <span>👤 {{ producto.usuario.username|default:"Anónimo" }}</span>
+            <span>📍 {{ producto.ubicacion }}</span>
+        </div>
+
+        <div style="position: relative;">
+            {% if producto.imagen %}
+            <img src="{{ producto.imagen.url }}" class="card-img" alt="{{ producto.nombre }}">
+            {% else %}
+            <div class="card-img"
+                style="background: #ddd; display: flex; align-items: center; justify-content: center;">
+                Sin Imagen
+            </div>
+            {% endif %}
+            <div class="price-tag">${{ producto.precio }}</div>
+        </div>
+
+        <div class="card-body">
+            <h3>{{ producto.nombre }}</h3>
+            <p>{{ producto.descripcion }}</p>
+            <small style="color: #666;">📅 {{ producto.fecha_publicacion|timesince }} atrás</small>
+
+            <div class="card-actions">
+                <a href="{% url 'detalle_oferta' producto.id %}" class="btn-retro">Ver Detalles</a>
+                <span>✅ {{ producto.total_likes }} Validaciones</span>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div style="text-align: center; padding: 3rem;">
+        <h2>No hay ofertas aún 😢</h2>
+        <p>¡Sé el primero en subir una!</p>
+        <a href="{% url 'crear_oferta' %}" class="btn-retro">Subir Oferta</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

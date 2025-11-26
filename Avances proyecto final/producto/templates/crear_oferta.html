@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" style="max-width: 600px;">
+    <div class="card">
+        <div class="card-header" style="justify-content: center;">
+            <h2>📸 Subir Nueva Oferta</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Nombre del Producto</label>
+                    {{ form.nombre }}
+                </div>
+
+                <div class="form-group">
+                    <label>Precio ($)</label>
+                    {{ form.precio }}
+                </div>
+
+                <div class="form-group">
+                    <label>Categoría</label>
+                    {{ form.categoria }}
+                </div>
+
+                <div class="form-group">
+                    <label>Ubicación</label>
+                    {{ form.ubicacion }}
+                </div>
+
+                <div class="form-group">
+                    <label>Descripción</label>
+                    {{ form.descripcion }}
+                </div>
+
+                <div class="form-group">
+                    <label>Foto (Opcional pero recomendada)</label>
+                    {{ form.imagen }}
+                </div>
+
+                <button type="submit" class="btn-retro" style="width: 100%; margin-top: 1rem;">Publicar Oferta</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

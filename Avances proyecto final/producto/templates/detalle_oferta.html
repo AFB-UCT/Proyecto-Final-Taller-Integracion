@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <a href="{% url 'feed' %}" style="text-decoration: none; color: inherit;">⬅ Volver</a>
+        <span>Detalle de Oferta</span>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <div style="flex: 1; min-width: 300px;">
+            {% if producto.imagen %}
+            <img src="{{ producto.imagen.url }}" class="card-img" alt="{{ producto.nombre }}">
+            {% else %}
+            <div class="card-img"
+                style="background: #ddd; display: flex; align-items: center; justify-content: center;">
+                Sin Imagen
+            </div>
+            {% endif %}
+        </div>
+
+        <div style="flex: 1; min-width: 300px;">
+            <h1 style="font-family: var(--font-pixel); margin-top: 0;">{{ producto.nombre }}</h1>
+            <div class="price-tag"
+                style="position: static; display: inline-block; transform: none; margin: 0 0 1rem 0;">
+                ${{ producto.precio }}
+            </div>
+
+            <p><strong>📍 Ubicación:</strong> {{ producto.ubicacion }}</p>
+            <p><strong>📂 Categoría:</strong> {{ producto.get_categoria_display }}</p>
+            <p><strong>👤 Subido por:</strong> {{ producto.usuario.username|default:"Anónimo" }}</p>
+            <p><strong>📝 Descripción:</strong> {{ producto.descripcion }}</p>
+
+            <div class="card-actions">
+                <a href="{% url 'validar_oferta' producto.id %}" class="btn-retro">
+                    {% if user in producto.likes.all %}
+                    ❌ Quitar Validación
+                    {% else %}
+                    ✅ Validar Oferta
+                    {% endif %}
+                </a>
+                <span>Total Validaciones: {{ producto.total_likes }}</span>
+            </div>
+        </div>
+    </div>
+
+    <hr style="border: 2px dashed var(--border-color); margin: 2rem 0;">
+
+    <h3>💬 Comentarios</h3>
+
+    <div style="margin-bottom: 2rem;">
+        {% for comentario in comentarios %}
+        <div style="background: #f9f9f9; padding: 1rem; border: 1px solid #ddd; margin-bottom: 1rem;">
+            <strong>{{ comentario.usuario.username }}</strong> <small style="color: #888;">{{ comentario.fecha|timesince
+                }} atrás</small>
+            <p style="margin: 0.5rem 0 0 0;">{{ comentario.texto }}</p>
+        </div>
+        {% empty %}
+        <p>No hay comentarios aún.</p>
+        {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.texto }}
+        <button type="submit" class="btn-retro" style="margin-top: 0.5rem;">Comentar</button>
+    </form>
+    {% else %}
+    <p><a href="{% url 'login' %}">Inicia sesión</a> para comentar.</p>
+    {% endif %}
+</div>
+{% endblock %}
